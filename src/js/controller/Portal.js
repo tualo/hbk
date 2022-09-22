@@ -49,6 +49,7 @@ Ext.define('HybridLetterServer.controller.Portal', {
         window.open(record.get('name'));
     },
     getfiles: function(){
+        let me = this;
         Ext.Ajax.request({
             url: './hbk/getfiles',
             timeout: 300000,
@@ -66,10 +67,11 @@ Ext.define('HybridLetterServer.controller.Portal', {
                 var o = JSON.parse(res.responseText);
                 Ext.toast({
                     html: o.msg,
-                    title: 'OK',
+                    title: 'Abruf',
                     width: 200,
                     align: 't'
                 });
+                me.loadHybrid();
             }
         })
     },
