@@ -76,6 +76,7 @@ Ext.define('HybridLetterServer.controller.Portal', {
         })
     },
     cleandata: function(){
+        let me=this;
         Ext.Ajax.request({
             url: './hbk/cleansjobs',
             timeout: 300000,
@@ -97,6 +98,7 @@ Ext.define('HybridLetterServer.controller.Portal', {
                     width: 200,
                     align: 't'
                 });
+                me.loadHybrid();
             }
         })
     },
