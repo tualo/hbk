@@ -55,7 +55,7 @@ class GetFiles implements IRoute{
                     }
                 }
 
-                App::result('msg','Die daten wurden abgerufen');
+                App::result('msg','Die Daten wurden abgerufen');
                 App::result('success',true);
             }catch(\Exception $e){
                 App::result('msg', $e->getMessage());
