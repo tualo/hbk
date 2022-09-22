@@ -4,6 +4,8 @@ require_once "HlsHelper.php";
 
 require_once "Middlewares/Middleware.php";
 
+require_once "Routes/JsLoader.php";
+
 require_once "Routes/CleanJobs.php";
 require_once "Routes/GetFiles.php";
 require_once "Routes/GlobFiles.php";
