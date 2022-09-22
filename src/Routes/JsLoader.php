@@ -24,6 +24,8 @@ class JsLoader implements IRoute{
             foreach( $list as $item ){
                 $content .= file_get_contents( dirname(__DIR__,1).'/'.$item ).PHP_EOL.PHP_EOL;
             }
+            App::body( $content );
+            
         },array('get'),false);
 
     }
