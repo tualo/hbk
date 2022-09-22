@@ -16,7 +16,7 @@ class JsLoader implements IRoute{
                 "js/controller/Main.js",
                 "js/model/Main.js",
                 "js/view/Portal.js",
-                "js/view/Main.js",
+                "js/view/main/Main.js",
                 "js/Viewport.js",
                 "js/Routes.js"
             ];
