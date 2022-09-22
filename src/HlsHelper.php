@@ -2,7 +2,7 @@
 namespace Tualo\Office\HBK;
 
 use Tualo\Office\Basic\TualoApplication as App;
-Tualo\Office\HLS\HlsHelper
+
 class HlsHelper {
         
     public static function glob($taskID){
