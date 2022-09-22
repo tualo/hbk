@@ -31,17 +31,20 @@ class CleanJobs implements IRoute{
         
                 $dir =  implode('/',[$tempdir,$taskID]);
         
-                
-                $it = new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS);
-                $files = new \RecursiveIteratorIterator($it, \RecursiveIteratorIterator::CHILD_FIRST);
-                foreach($files as $file) {
-                    if ($file->isDir()){
-                        rmdir($file->getRealPath());
-                    } else {
-                        unlink($file->getRealPath());
+                try{
+                    $it = new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS);
+                    $files = new \RecursiveIteratorIterator($it, \RecursiveIteratorIterator::CHILD_FIRST);
+                    foreach($files as $file) {
+                        if ($file->isDir()){
+                            rmdir($file->getRealPath());
+                        } else {
+                            unlink($file->getRealPath());
+                        }
                     }
+                    rmdir($dir);
+                }catch(\Exception $e){
+                    App::result('RecursiveDirectoryIterator_msg', $e->getMessage());
                 }
-                rmdir($dir);
         
                 App::result('msg','Alle Daten wurden gelöscht');
                 
