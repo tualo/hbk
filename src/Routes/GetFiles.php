@@ -5,6 +5,7 @@ use Tualo\Office\Basic\TualoApplication as App;
 use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
 use phpseclib3\Net\SFTP;
+use Tualo\Office\HBK\HlsHelper;
 
 class GetFiles implements IRoute{
     public static function register(){

@@ -4,7 +4,8 @@ namespace Tualo\Office\HBK\Routes;
 use Tualo\Office\Basic\TualoApplication as App;
 use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
-use Tualo\Office\HLS\HlsHelper;
+use Tualo\Office\HBK\HlsHelper;
+
 
 class GlobFiles implements IRoute{
     public static function register(){
