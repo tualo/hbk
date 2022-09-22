@@ -6,7 +6,7 @@ use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
 use Tualo\Office\HLS\HlsHelper;
 
-class PdfPages implements IRoute{
+class PdfSplit implements IRoute{
 
     public static function register(){
         BasicRoute::add('/hbk/pdfsplit',function($matches){

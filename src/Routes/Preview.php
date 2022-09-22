@@ -6,7 +6,7 @@ use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
 use Tualo\Office\HLS\HlsHelper;
 
-class PdfPages implements IRoute{
+class Preview implements IRoute{
 
     public static function register(){
         BasicRoute::add('/hls/hybrid/preview',function($matches){
