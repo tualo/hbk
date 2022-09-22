@@ -16,5 +16,7 @@
         "files": ["src/functions.php"]
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "phpseclib/phpseclib": "^3.0"
+    }
 }
