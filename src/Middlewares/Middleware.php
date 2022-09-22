@@ -8,7 +8,7 @@ class Middleware implements IMiddleware{
     public static function register(){
         App::use('hbk',function(){
             try{
-                App::javascript('hbk_loader', './hbk/loader.js',[],0);
+                App::javascript('hbk_loader', './hbk/loader.js',[],1000);
             }catch(\Exception $e){
                 App::set('maintanceMode','on');
                 App::addError($e->getMessage());
