@@ -20,7 +20,7 @@ class PdfPages implements IRoute{
                 ini_set('mysql.connect_timeout','0');
                 ini_set('max_execution_time', '0');
                 
-                App::result('data', Tualo\Office\HLS\HlsHelper::pdf($taskID) );
+                App::result('data', HlsHelper::pdf($taskID) );
         
                 App::result('success',true);
         
