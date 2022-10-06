@@ -1,0 +1,91 @@
+%!
+          /pagewidtho  currentpagedevice /PageSize get 0 get def
+          /pageheighto currentpagedevice /PageSize get 1 get def
+    (---) print
+    (---) print
+    pageheighto (     ) cvs print
+    (x) print
+    pagewidtho (     ) cvs print
+    (---***) print
+<<
+    /EndPage {
+        exch pop 2 lt {
+          /pagewidth  currentpagedevice /PageSize get 0 get def
+          /pageheight currentpagedevice /PageSize get 1 get def
+    (---) print
+    pageheight (     ) cvs print
+    (x) print
+    pagewidth (     ) cvs print
+    (---) print
+          pageheight pagewidth gt {
+            gsave
+             newpath
+             18.76535433070866 586.7716535433071 moveto
+             44.27716535433071 586.7716535433071 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             18.76535433070866 567.3259842519685 moveto
+             44.27716535433071 567.3259842519685 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             18.76535433070866 557.6031496062992 moveto
+             44.27716535433071 557.6031496062992 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             18.76535433070866 547.8803149606299 moveto
+             44.27716535433071 547.8803149606299 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             18.76535433070866 538.1574803149606 moveto
+             44.27716535433071 538.1574803149606 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             18.76535433070866 528.4346456692913 moveto
+             44.27716535433071 528.4346456692913 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+            grestore
+            true
+          } {
+            gsave
+             newpath
+             708.6614173228347 566.9291338582677 moveto
+             708.6614173228347 549.9212598425197 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             684.6803149606299 566.9291338582677 moveto
+             684.6803149606299 549.9212598425197 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             672.6897637795275 566.9291338582677 moveto
+             672.6897637795275 549.9212598425197 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             660.6992125984252 566.9291338582677 moveto
+             660.6992125984252 549.9212598425197 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             648.7086614173228 566.9291338582677 moveto
+             648.7086614173228 549.9212598425197 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+             newpath
+             636.7181102362204 566.9291338582677 moveto
+             636.7181102362204 549.9212598425197 lineto
+             1.1338582677165356 setlinewidth
+             stroke
+            grestore
+            true
+          } ifelse
+        } { false } ifelse
+    }bind
+>>setpagedevice
