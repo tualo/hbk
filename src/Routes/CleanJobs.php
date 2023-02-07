@@ -23,10 +23,11 @@ class CleanJobs implements IRoute{
                 ini_set('mysql.connect_timeout','0');
                 ini_set('max_execution_time', '0');
                 
-                $items = $_SESSION['hbk'][$taskID]['mainlist'];
+                $items = HlsHelper::mainlist(); //$_SESSION['hbk'][$taskID]['mainlist'];
         
                 foreach($items as $c){
-                    unlink( $c['file'] );
+                    if (file_exists($c['file']))    unlink( $c['file'] );
+                    if (file_exists(str_replace('.xml','.pdf',$c['file'])))    unlink( str_replace('.xml','.pdf',$c['file']) );
                 }
         
                 $dir =  implode('/',[$tempdir,$taskID]);

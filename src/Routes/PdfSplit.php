@@ -13,24 +13,26 @@ class PdfSplit implements IRoute{
             $db = App::get('session')->getDB();
             App::contenttype('application/json');
             try{
-                $taskID='123';
-                $tempdir = App::get('tempPath');
-                $dir =  implode('/',[$tempdir,$taskID]);
-                set_time_limit(0);   
-                ini_set('mysql.connect_timeout','0');
-                ini_set('max_execution_time', '0');
-                $it = new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS);
-                $files = new \RecursiveIteratorIterator($it, \RecursiveIteratorIterator::CHILD_FIRST);
-                foreach($files as $file) {
-                    if ($file->isDir()){
-                        rmdir($file->getRealPath());
-                    } else {
-                        unlink($file->getRealPath());
+
+                $jobid = '867625432634';
+                ini_set('upload_max_filesize','2GB');
+                ini_set('post_max_size','2GB');
+                
+                $newfile = PDF_SPLIT_PATH.'/'.$jobid.'pdf';
+                if (isset($_FILES['userfile'])){
+                    $sfile = $_FILES['userfile']['tmp_name'];
+                    $name = $_FILES['userfile']['name'];
+                    $type = $_FILES['userfile']['type'];
+                    $error = $_FILES['userfile']['error'];
+                    if ($error == UPLOAD_ERR_OK){
+                        move_uploaded_file($sfile, $newfile);
+                    if (file_exists($newfile)){
+                      $config = json_decode(file_get_contents($newfile),true);
+                      unlink($newfile);
                     }
+                  }
                 }
-                rmdir($dir);
-                set_time_limit(60*60);
-                if (!file_exists($dir)) mkdir( $dir ,0777,true );
+
                 App::result('success',true);
             }catch(\Exception $e){
                 App::result('msg', $e->getMessage());

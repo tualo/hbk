@@ -4,7 +4,15 @@ namespace Tualo\Office\HBK;
 use Tualo\Office\Basic\TualoApplication as App;
 
 class HlsHelper {
-        
+       
+    public static function mainlist($data=null){
+        $fname=App::get('tempDir').'/mainlist.json';
+        if (!is_null($data)){
+            file_put_contents($fname,json_encode($data));
+        }
+        if (!file_exists($fname)) return [];
+        return json_decode(file_get_contents($fname),true);
+    }
     public static function glob($taskID){
         $data = [];
         $glob_result = glob(App::get('hlsJobDir').'/'.'*.xml');
@@ -124,7 +132,7 @@ class HlsHelper {
         $tempdir = App::get('tempPath');
         $sequence=0;
         $n=0;
-        $items = $_SESSION['hbk'][$taskID]['mainlist'];
+        $items = self::mainlist(); //$_SESSION['hbk'][$taskID]['mainlist'];
 
         foreach($items as $item){
             $baseitem = $item;
@@ -194,7 +202,7 @@ class HlsHelper {
 
     public static function pdf($taskID){
 
-        $items = $_SESSION['hbk'][$taskID]['mainlist'];
+        $items = self::mainlist(); //$_SESSION['hbk'][$taskID]['mainlist'];
 
         $data = [
             'sw_dlang'=>[

@@ -22,8 +22,9 @@ class GlobFiles implements IRoute{
                 
                 if (!isset($_SESSION['hbk'])) $_SESSION['hbk']=[];
                 if (!isset($_SESSION['hbk'][$taskID])) $_SESSION['hbk'][$taskID]=[];
-                $_SESSION['hbk'][$taskID]['mainlist'] = HlsHelper::glob($taskID);
-                App::result('data', $_SESSION['hbk'][$taskID]['mainlist'] );
+                // $_SESSION['hbk'][$taskID]['mainlist'] = HlsHelper::glob($taskID);
+                HlsHelper::mainlist( HlsHelper::glob($taskID) ); //
+                App::result('data',HlsHelper::mainlist() );
                 App::result('success',true);
             }catch(\Exception $e){
                 App::result('msg', $e->getMessage());

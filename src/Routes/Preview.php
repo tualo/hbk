@@ -15,11 +15,12 @@ class Preview implements IRoute{
                 App::contenttype('application/json');
                 App::set('hlsJobDir',HLS_JOB_DIR);
                 $taskID='123';
-                $_SESSION['hbk'][$taskID]['mainlist'] = HlsHelper::omr($taskID);
+                //$_SESSION['hbk'][$taskID]['mainlist'] = HlsHelper::omr($taskID);
+                HlsHelper::mainlist( HlsHelper::omr($taskID) );
                 set_time_limit(0);   
                 ini_set('mysql.connect_timeout','0');
                 ini_set('max_execution_time', '0');
-                App::result('data', $_SESSION['hbk'][$taskID]['mainlist'] );
+                App::result('data', HlsHelper::mainlist() );
                 App::result('success',true);
             }catch(\Exception $e){
                 App::result('msg', $e->getMessage());

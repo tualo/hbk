@@ -33,6 +33,12 @@ class HlsSpliter extends HlsHelper {
         }
     }
 
+    public static function countPages($file){
+        exec(sprintf('gs -q -dNODISPLAY -c "(%s) (r) file runpdfbegin pdfpagecount = quit"', $file), $res, $ret);
+        if(0 <> $ret) throw new \Exception( 'Error ' . $ret);
+        return (int) $res[0];
+    }
+
     public static function splitPDF2Jpeg($filename,$path){
         $params = [];
         $params[] = '-q';
