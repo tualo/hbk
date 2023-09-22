@@ -6,7 +6,7 @@ use Tualo\Office\Basic\TualoApplication as App;
 class HlsHelper {
        
     public static function mainlist($data=null){
-        $fname=App::get('tempDir').'/mainlist.json';
+        $fname=App::get('tempPath').'/mainlist.json';
         if (!is_null($data)){
             file_put_contents($fname,json_encode($data));
         }
@@ -41,6 +41,7 @@ class HlsHelper {
                 ];
 
                 exec('pdffonts '.preg_replace('/.xml$/','.pdf',$file),$fonts);
+                /*
                 $dataitem['fontcheck']=$fonts;
                 foreach($fonts as $font){
                     $columns = explode(' ',preg_replace( '/\s\s+/',' ',$font));
@@ -58,7 +59,8 @@ class HlsHelper {
                         ];
                     }
                 }
-
+                */
+                
                 $dataitem['singlepages']=self::singlePages($taskID,$dataitem);
 
             
