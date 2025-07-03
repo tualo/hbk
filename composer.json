@@ -1,22 +1,25 @@
 {
-    "name": "tualo/hbk",
-    "description": "tualo - hybrid briefkasten",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Thomas Hoffmann",
-            "email": "thomas.hoffmann@tualo.de"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Tualo\\Office\\HBK\\": "src/"
-        },
-        "files": ["src/functions.php"]
-    },
-    "minimum-stability": "dev",
-    "require": {
-        "phpseclib/phpseclib": "^3.0"
+  "name": "tualo/hbk",
+  "description": "tualo - hybrid briefkasten",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Hoffmann",
+      "email": "thomas.hoffmann@tualo.de"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tualo\\Office\\HBK\\": "src/"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "phpseclib/phpseclib": "^3.0"
+  },
+  "version": "1.0.1"
 }
