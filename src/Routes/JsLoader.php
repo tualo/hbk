@@ -1,4 +1,5 @@
 <?php
+
 namespace Tualo\Office\HBK\Routes;
 
 use Tualo\Office\Basic\TualoApplication as App;
@@ -6,9 +7,11 @@ use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
 use Tualo\Office\HLS\HlsHelper;
 
-class JsLoader implements IRoute{
-    public static function register(){
-        BasicRoute::add('/hbk/loader.js',function($matches){
+class JsLoader extends \Tualo\Office\Basic\RouteWrapper
+{
+    public static function register()
+    {
+        BasicRoute::add('/hbk/loader.js', function ($matches) {
             App::contenttype('application/javascript');
             $list = [
                 "js/controller/Portal.js",
@@ -21,12 +24,10 @@ class JsLoader implements IRoute{
                 "js/Routes.js"
             ];
             $content = '';
-            foreach( $list as $item ){
-                $content .= file_get_contents( dirname(__DIR__,1).'/'.$item ).PHP_EOL.PHP_EOL;
+            foreach ($list as $item) {
+                $content .= file_get_contents(dirname(__DIR__, 1) . '/' . $item) . PHP_EOL . PHP_EOL;
             }
-            App::body( $content );
-            
-        },array('get'),false);
-
+            App::body($content);
+        }, array('get'), false);
     }
 }
