@@ -5,7 +5,7 @@ namespace Tualo\Office\HBK\Routes;
 use Tualo\Office\Basic\TualoApplication as App;
 use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
-use phpseclib3\Net\SFTP;
+use phpseclib4\Net\SFTP;
 use Tualo\Office\HBK\HlsHelper;
 
 class GetFiles extends \Tualo\Office\Basic\RouteWrapper
